@@ -14,6 +14,10 @@ config/name="thethegame"
 run/main_scene="res://firstsceneidk.tscn"
 config/icon="res://icon.png"
 
+[gdnative]
+
+singletons=[ "res://pythonscript.gdnlib" ]
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
