@@ -4,14 +4,14 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Icon" type="Sprite" parent="."]
+[node name="Jean" type="Sprite" parent="."]
 position = Vector2( 519, 292 )
 texture = ExtResource( 1 )
 
-[node name="Icon" type="Sprite" parent="Icon"]
+[node name="Michelle" type="Sprite" parent="Jean"]
 position = Vector2( 281, -2 )
 texture = ExtResource( 1 )
 
-[node name="Icon2" type="Sprite" parent="Icon"]
+[node name="Robert" type="Sprite" parent="Jean"]
 position = Vector2( -304, 60 )
 texture = ExtResource( 1 )
