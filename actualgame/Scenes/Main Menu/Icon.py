@@ -14,3 +14,4 @@ class Icon(Sprite):
 		
 		pass
 	
+# imagine a function
