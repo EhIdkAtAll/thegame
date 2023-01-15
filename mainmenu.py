@@ -13,7 +13,7 @@ def main():
     #screen = pygame.display.set_mode((500,500))
     pygame.display.set_caption('The game')
 
-    sound = pygame.mixer.Sound('music.mp3')
+    sound = pygame.mixer.Sound('assets/music.mp3')
     sound.play(-1)
 
     background = pygame.Surface(screen.get_size())
@@ -22,7 +22,6 @@ def main():
 
     img = pygame.image.load("assets/game_icon.png").convert_alpha()
     icon = Button(x_screen_size * 0.5, y_screen_size * 0.2, img, y_screen_size / 500 )
-    
 
     img = pygame.image.load("assets/play_button.png").convert_alpha()
     playb = Button(x_screen_size * 0.5, y_screen_size * 0.4, img, y_screen_size / 500 )
