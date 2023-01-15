@@ -10,11 +10,8 @@ def main():
     y_screen_size = pygame.display.Info().current_h
     
     screen = pygame.display.set_mode((x_screen_size, y_screen_size))
-    #screen = pygame.display.set_mode((1000,1000))
+    #screen = pygame.display.set_mode((500,500))
     pygame.display.set_caption('The game')
-
-    x_screen_size = pygame.display.Info().current_w
-    y_screen_size = pygame.display.Info().current_h
 
     sound = pygame.mixer.Sound('music.mp3')
     sound.play(-1)
@@ -22,6 +19,10 @@ def main():
     background = pygame.Surface(screen.get_size())
     background = background.convert()
     background.fill((0, 0, 0)) 
+
+    img = pygame.image.load("assets/game_icon.png").convert_alpha()
+    icon = Button(x_screen_size * 0.5, y_screen_size * 0.2, img, y_screen_size / 500 )
+    
 
     img = pygame.image.load("assets/play_button.png").convert_alpha()
     playb = Button(x_screen_size * 0.5, y_screen_size * 0.4, img, y_screen_size / 500 )
@@ -34,6 +35,8 @@ def main():
 
     
     while True:
+
+        icon.draw(screen)
 
         if playb.draw(screen):
             print("START")
