@@ -1,10 +1,15 @@
-import pygame
+import pygame, json
 from utilities import Button
 
 def main():
+
+    with open("config.json", "r") as f:
+        config = json.load(f)
+
     #Music
     pygame.mixer.pre_init(44100, -16, 2, 4096)
     pygame.init()
+    pygame.mixer.Sound.set_volume(config["soundlevel"])
 
     x_screen_size = pygame.display.Info().current_w
     y_screen_size = pygame.display.Info().current_h
@@ -35,6 +40,7 @@ def main():
     #Launch the Main Menu
     while True:
 
+        sound.set_volume(config["soundlevel"])
         icon.draw(screen)
 
         if playb.draw(screen):
@@ -45,10 +51,12 @@ def main():
 
         if exitb.draw(screen):
             pygame.quit()
+            quit()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
+                quit()
 
         pygame.display.update()
 
