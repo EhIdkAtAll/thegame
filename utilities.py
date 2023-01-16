@@ -28,17 +28,22 @@ class Button():
 
 
 class Slider():
-	def __init__(self, x, y, valuetochange, bar_image="assets/bar_image.png", button_image="assets/button_image.png", scale=1):
+	def __init__(self, x, y, valuetochange, bar_image, button_image, scale=1):
 		self.x = x
 		self.y = y
+
+		self.bar_width = int(bar_image.get_width() * scale)
+		self.bar_height = int(bar_image.get_height() * scale)
+		self.button_width = int(button_image.get_width() * scale)
+		self.button_height = int(button_image.get_height() * scale)
 
 		self.scale = scale
 		self.value = 50
 		self.valuetochange = valuetochange
 		self.selected = False
 
-		self.bar_image = pygame.transform.scale(bar_image, (int(113 * scale), int(19 * scale)))
-		self.button_image = pygame.transform.scale(button_image, (int(18 * scale), int(16 * scale)))
+		self.bar_image = pygame.transform.scale(bar_image, (self.bar_width, self.bar_height))
+		self.button_image = pygame.transform.scale(button_image, (self.button_width, self.button_height))
 
 		self.bar_rect = self.bar_image.get_rect()
 		self.button_rect = self.button_image.get_rect()
