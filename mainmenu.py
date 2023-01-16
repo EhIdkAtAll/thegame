@@ -38,19 +38,19 @@ def main():
 
     #Launch the Main Menu
     while True:
+        sound.set_volume(config["soundlevel"])
 
         screen.fill((0, 0, 0))
-
-        sound.set_volume(config["soundlevel"])
         icon.draw(screen)
+        playb.draw(screen)
+        settingsb.draw(screen)
+        exitb.draw(screen)
 
-        if playb.draw(screen):
-            print("START")
-
-        if settingsb.draw(screen):
+        if playb.act() == True:
+            print("PLAY")
+        if settingsb.act() == True:
             print("SETTINGS")
-
-        if exitb.draw(screen):
+        if exitb.act() == True:
             pygame.quit()
             quit()
 

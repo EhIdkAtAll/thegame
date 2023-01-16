@@ -2,15 +2,20 @@ import pygame, json
 
 class Button():
 	def __init__(self, x, y, image, scale = 1):
-		width = image.get_width()
-		height = image.get_height()
-		self.image = pygame.transform.scale(image, (int(width * scale), int(height * scale)))
+		self.width = int(image.get_width() * scale)
+		self.height = int(image.get_height() * scale)
+
+		self.image = pygame.transform.scale(image, (self.width, self.height))
+
 		self.rect = self.image.get_rect()
+
 		self.rect.center = (x, y)
+
 		self.clicked = False
+		self.action = False
 
 	def draw(self, surface):
-		self.action = False
+		surface.blit(self.image, (self.rect.x, self.rect.y))
 
 		pos = pygame.mouse.get_pos()
 
@@ -18,10 +23,8 @@ class Button():
 				self.clicked = True
 				self.action = True
 
-		if pygame.mouse.get_pressed()[0] == 0:
+		if self.clicked and not pygame.mouse.get_pressed()[0]:
 			self.clicked = False
-
-		surface.blit(self.image, (self.rect.x, self.rect.y))
 
 		return self.action
 	
