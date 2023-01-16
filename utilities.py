@@ -1,13 +1,22 @@
 import pygame, json
 
 class Button():
-	def __init__(self, x, y, image, scale = 1):
+	def __init__(self, x, y, image, scale = 1, hover_image = None):
+		self.hover = False
+
 		self.width = int(image.get_width() * scale)
 		self.height = int(image.get_height() * scale)
-
 		self.image = pygame.transform.scale(image, (self.width, self.height))
-
 		self.rect = self.image.get_rect()
+
+		if hover_image != None:
+			self.owidth = int(hover_image.get_width() * scale)
+			self.oheight = int(hover_image.get_height() * scale)
+			self.oimage = pygame.transform.scale(hover_image, (self.owidth, self.oheight))
+			self.orect = self.oimage.get_rect()
+
+			self.hover = True
+
 
 		self.rect.center = (x, y)
 
@@ -15,9 +24,12 @@ class Button():
 		self.action = False
 
 	def draw(self, surface):
-		surface.blit(self.image, (self.rect.x, self.rect.y))
-
 		pos = pygame.mouse.get_pos()
+
+		if self.rect.collidepoint(pos) and self.hover:
+			surface.blit(self.oimage, (self.rect.x, self.rect.y))
+		else:
+			surface.blit(self.image, (self.rect.x, self.rect.y))
 
 		if self.rect.collidepoint(pos) and pygame.mouse.get_pressed()[0] and not self.clicked:
 				self.clicked = True
@@ -25,6 +37,8 @@ class Button():
 
 		if self.clicked and not pygame.mouse.get_pressed()[0]:
 			self.clicked = False
+
+
 
 		return self.action
 	

@@ -28,13 +28,16 @@ def main():
     icon = Button(x_screen_size * 0.5, y_screen_size * 0.2, img, y_screen_size / 500)
 
     img = pygame.image.load("assets/play_button.png").convert_alpha()
-    playb = Button(x_screen_size * 0.5, y_screen_size * 0.4, img, y_screen_size / 500)
+    oimg = pygame.image.load("assets/hover_play_button.png").convert_alpha()
+    playb = Button(x_screen_size * 0.5, y_screen_size * 0.4, img, y_screen_size / 500, oimg)
 
     img = pygame.image.load("assets/settings_button.png").convert_alpha()
-    settingsb = Button(x_screen_size * 0.5, y_screen_size * 0.6, img, y_screen_size / 500)
+    oimg = pygame.image.load("assets/hover_settings_button.png").convert_alpha()
+    settingsb = Button(x_screen_size * 0.5, y_screen_size * 0.6, img, y_screen_size / 500, oimg)
 
     img = pygame.image.load("assets/exit_button.png").convert_alpha()
-    exitb = Button(x_screen_size * 0.5, y_screen_size * 0.8, img, y_screen_size / 500)
+    oimg = pygame.image.load("assets/hover_exit_button.png").convert_alpha()
+    exitb = Button(x_screen_size * 0.5, y_screen_size * 0.8, img, y_screen_size / 500, oimg)
 
     #Launch the Main Menu
     while True:
