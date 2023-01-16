@@ -9,7 +9,6 @@ def main():
     #Music
     pygame.mixer.pre_init(44100, -16, 2, 4096)
     pygame.init()
-    pygame.mixer.Sound.set_volume(config["soundlevel"])
 
     x_screen_size = pygame.display.Info().current_w
     y_screen_size = pygame.display.Info().current_h
