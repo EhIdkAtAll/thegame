@@ -39,6 +39,8 @@ def main():
     #Launch the Main Menu
     while True:
 
+        screen.fill((0, 0, 0))
+
         sound.set_volume(config["soundlevel"])
         icon.draw(screen)
 
