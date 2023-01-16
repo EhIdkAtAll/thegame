@@ -1,5 +1,5 @@
 import pygame, json
-from utilities import Button
+from utilities import Button, Slider, CheckBox
 
 def main():
 
