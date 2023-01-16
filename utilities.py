@@ -28,12 +28,13 @@ class Button():
 
 
 class Slider():
-	def __init__(self, x, y, bar_image="assets/bar_image.png", button_image="assets/button_image.png", scale=1):
+	def __init__(self, x, y, valuetochange, bar_image="assets/bar_image.png", button_image="assets/button_image.png", scale=1):
 		self.x = x
 		self.y = y
 
 		self.scale = scale
 		self.value = 50
+		self.valuetochange = valuetochange
 		self.selected = False
 
 		self.bar_image = pygame.transform.scale(bar_image, (int(113 * scale), int(19 * scale)))
@@ -59,7 +60,7 @@ class Slider():
 			with open("config.json", "r") as f:
 				data = json.load(f)
 			
-			data["soundlevel"] = self.value
+			data[self.valuetochange] = self.value
 			
 			with open("config.json", "w") as f:
 				json.dump(data, f)
