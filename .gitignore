@@ -9,3 +9,5 @@ export_presets.cfg
 data_*/
 .venv/
 __pychache__/
+pygame/
+test_place.py
