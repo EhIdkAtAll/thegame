@@ -8,6 +8,7 @@ export_presets.cfg
 .mono/
 data_*/
 .venv/
-__pychache__/
+__pycache__/
+.idea/
 pygame/
 test_place.py
