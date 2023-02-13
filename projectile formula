@@ -4,3 +4,5 @@ X: Vitesse Initial * cos(Angle Initial) * t + x initial
 
 
 y: -1/2 * gravitée * t² + Vitesse initial * sin(Angle initial)
+
+vy = -gravitée * t + Vitesse initial * sin(angle initial)
