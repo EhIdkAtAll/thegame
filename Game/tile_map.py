@@ -75,21 +75,21 @@ class TileMap():
                     toblit = self.tiles[tile["type"]]
                 if tile["type"] in self.images:
                     toblit = self.images[tile["type"]]
-
-                if self.current_layer == None or layer == int(self.current_layer):
-                    display.blit(toblit, (x, y))
-                else:
-                    if self.opacity:
-                        blit_alpha(display, toblit, (x,y), 100)
-                    else:
-                        display.blit(toblit, (x, y))
                 
-                if tile["layer"] == 0:
-                    rect = toblit.get_rect()
-                    rect.topleft = (x, y)
-                    self.collidables.append(rect)
-                #if -10 <= x <= 390 and -10 <= y <= 250:                                                                            # too lagy when lots of blocks
-                    #print("Layer: ",layer," | Current pos: ",[x/10,y/10], " | Tile pos: ", tile["pos"], "| Type: ", tile["type"])  # the forbidden line
+                if (-380 <= x <= 760 and -220 <= y <= 440 and tile["type"] in self.images) or (-10 <= x <= 390 and -10 <= y <= 230 and tile["type"] in self.tiles):
+                    if self.current_layer == None or layer == int(self.current_layer):
+                        display.blit(toblit, (x, y))
+                    else:
+                        if self.opacity:
+                            blit_alpha(display, toblit, (x,y), 100)
+                        else:
+                            display.blit(toblit, (x, y))
+
+                    if tile["layer"] == 0:
+                        rect = toblit.get_rect()
+                        rect.topleft = (x, y)
+                        self.collidables.append(rect)
+                        #print("Layer: ",layer," | Current pos: ",[x/10,y/10], " | Tile pos: ", tile["pos"], "| Type: ", tile["type"])  # the forbidden line
             #print("-------------------------------")
         #print('===============================')
                 
